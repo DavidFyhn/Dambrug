@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
@@ -8,6 +8,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>23eea908-206a-4101-9dcf-0c113e2d9af1</UserSecretsId>
   </PropertyGroup>
 
 </Project>

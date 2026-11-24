@@ -12,6 +12,16 @@ if (!string.IsNullOrWhiteSpace(connectionString))
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.MapGet("/api/db-check", async (Npgsql.NpgsqlDataSource database) =>
+    {
+        await using var command = database.CreateCommand("SELECT 1");
+        await command.ExecuteScalarAsync();
+        return Results.Ok(new { status = "Database connected" });
+    });
+}
+
 app.MapHealthChecks("/api/health", new HealthCheckOptions
 {
     ResponseWriter = (context, report) =>
